@@ -16,8 +16,18 @@ const EventForm = ()=>{
 		console.log(userId);
 	}, []);
 	return (
-		<>
-			<Form>
+		<div style={{margin:"2rem",}}>
+			<Form style={{
+				padding:"1rem",
+				maxWidth:"45rem",
+				margin:"auto",
+				display:"block",
+				borderStyle:"solid",
+				borderColor:"#C8C9CA",
+				borderRadius:"5px",
+				borderWidth:"1px"
+
+			}}>
 				<Form.Group className='mb-3' controlId='formTicketName'>
 					<Form.Label>Ticket Name</Form.Label>
 					<Form.Control
@@ -74,7 +84,7 @@ const EventForm = ()=>{
 					Submit
 				</Button>
 			</Form>
-		</>
+		</div>
 	);
 };
 
