@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.css';
 import {useState, useContext} from 'react';
 import {Context} from '../context/GlobalContext';
+import axios from 'axios';
 
 const Login = ()=>{
 	const [email, setEmail] = React.useState('');
@@ -14,18 +15,31 @@ const Login = ()=>{
 		console.log(userId);
 	}, []);
 
+	const sendUserData = ()=>{
+		console.log('SENDING USERDATA');
+		const userData = {
+			user_name: email,
+			password: password,
+		};
+
+		axios.post('http://localhost:5000/api/v1/tickets/sign_up', userData).then((response)=>{
+			console.log(response);
+		});
+	};
+
 	return (
-		<div style={{margin:"2rem",}}>
-			<Form style={{
-				padding:"1rem",
-				maxWidth:"45rem",
-				margin:"auto",
-				display:"block",
-				borderStyle:"solid",
-				borderColor:"#C8C9CA",
-				borderRadius:"5px",
-				borderWidth:"1px"
-			}}>
+		<div style={{margin: '2rem'}}>
+			<Form
+				style={{
+					padding: '1rem',
+					maxWidth: '45rem',
+					margin: 'auto',
+					display: 'block',
+					borderStyle: 'solid',
+					borderColor: '#C8C9CA',
+					borderRadius: '5px',
+					borderWidth: '1px',
+				}}>
 				<Form.Group className='mb-3' controlId='formBasicEmail'>
 					<Form.Label>Email address</Form.Label>
 					<Form.Control
@@ -63,7 +77,7 @@ const Login = ()=>{
 				<Button
 					variant='primary'
 					onClick={()=>{
-						console.log('sending data');
+						sendUserData();
 					}}>
 					Sign Up
 				</Button>
