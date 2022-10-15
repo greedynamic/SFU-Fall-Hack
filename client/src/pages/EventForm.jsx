@@ -1,35 +1,34 @@
-function Login() {
-    return (
-      <body>
-        <div class="login">
-            <h1>Event Form</h1>
-            <form>
-                <div class="eventForm-group">
-                    <label for="ticketName">Ticket Name: </label>
-                    <input type="ticketName" id="ticketName"></input>
-                </div>
-                <div class="eventForm-group">
-                    <label for="Location">Location: </label>
-                    <input type="location" id="location"></input>
-                </div>
-                <div class="eventForm-group">
-                    <label for="timeDate">Time/Date : </label>
-                    <input type="timeDate" id="timeDate"></input>
-                </div>
-                <div class="eventForm-group">
-                    <label for="originalCost">Original Cost: </label>
-                    <input type="originalCose" id="originalCost"></input>
-                </div>
-                <div class="eventForm-group">
-                    <label for="contact">Prefered way to contact: </label>
-                    <input type="contact" id="contact" placeholder="@example"></input>
-                </div>
-                <input type="submit" value="POST"></input>
-            </form>
-        </div>
-      </body>
-       
-    );
-  }
-  
-  export default Login;
+import React from 'react';
+
+const EventForm = ()=>{
+	return (
+		<body>
+			<div class='EventForm'>
+				<h1>Add Event</h1>
+				<div class='eventForm-group'>
+					<label for='ticketName'>Ticket Name: </label>
+					<input type='text' id='ticketName'></input>
+				</div>
+				<div class='eventForm-group'>
+					<label for='Location'>Location: </label>
+					<input type='text' id='location'></input>
+				</div>
+				<div class='eventForm-group'>
+					<label for='timeDate'>Time/Date : </label>
+					<input type='text' id='timeDate'></input>
+				</div>
+				<div class='eventForm-group'>
+					<label for='originalCost'>Original Cost: </label>
+					<input type='text' id='originalCost'></input>
+				</div>
+				<div class='eventForm-group'>
+					<label for='contact'>Prefered way to contact: </label>
+					<input type='text' id='contact' placeholder='@example'></input>
+				</div>
+				<button type='submit' value='POST'></button>
+			</div>
+		</body>
+	);
+};
+
+export default EventForm;

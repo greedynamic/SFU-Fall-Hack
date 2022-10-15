@@ -10,14 +10,17 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">\<Router>
-      <Menu />
-      <Routes>
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/' component={Home} />
-        <Route path='/add-event' component={EventForm} />
-      </Routes>
-    </Router>
+    <div className="App">
+      <Router>
+        <Menu />
+        <Routes>
+          <Route path="/" element={<Home />} />
+
+          <Route exact path='/login' element={<Login />} />
+          <Route exact path='/' element={<Home />} />
+          <Route path='/add-event' element={<EventForm />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
