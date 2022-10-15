@@ -50,23 +50,27 @@ const Login = ()=>{
 						}}
 					/>
 				</Form.Group>
+				<div style={{maxWidth:"10rem", margin:"auto"}}>
 				<Form.Group className='mb-3' controlId='formBasicCheckbox'>
-					<Form.Check type='checkbox' label='Check me out' />
+					<Form.Check type='checkbox' label='Stay signed in' />
 				</Form.Group>
-				<Button
-					variant='primary'
-					onClick={()=>{
-						console.log('sending data');
-					}}>
-					Sign In
-				</Button>
-				<Button
-					variant='primary'
-					onClick={()=>{
-						console.log('sending data');
-					}}>
-					Sign Up
-				</Button>
+				</div>
+				<div>
+					<Button style={{margin:"1rem"}}
+						variant='primary'
+						onClick={()=>{
+							console.log('sending data');
+						}}>
+						Sign In
+					</Button>
+					<Button
+						variant='primary'
+						onClick={()=>{
+							console.log('sending data');
+						}}>
+						Sign Up
+					</Button>
+				</div>
 			</Form>
 		</div>
 	);
