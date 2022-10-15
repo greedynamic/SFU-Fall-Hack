@@ -8,14 +8,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Router>
         <Menu />
         <Routes>
           <Route path="/" element={<Home />} />
-
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/' element={<Home />} />
           <Route path='/add-event' element={<EventForm />} />
