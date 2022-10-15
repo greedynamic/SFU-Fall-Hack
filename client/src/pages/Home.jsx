@@ -1,6 +1,12 @@
 import EventCard from '../components/EventCard';
+import {useState, useContext, useEffect} from 'react';
+import {Context} from '../context/GlobalContext';
 
 function Home(){
+	const userId = useContext(Context);
+	useEffect(()=>{
+		console.log(userId);
+	}, []);
 	const events = [
 		{
 			id: 1,
@@ -8,7 +14,7 @@ function Home(){
 			location: 'Rogers arena',
 			time: 'October 18th 2022',
 			cost: 0,
-			userID: 10
+			userID: 10,
 		},
 		{
 			id: 2,
@@ -16,8 +22,7 @@ function Home(){
 			location: 'Toronto',
 			time: 'tomorrow',
 			cost: 0,
-			userID: 11
-
+			userID: 11,
 		},
 		{
 			id: 3,
@@ -25,8 +30,7 @@ function Home(){
 			location: 'SFU Burnaby, AQ',
 			time: '7 pm',
 			cost: 0,
-			userID: 12
-
+			userID: 12,
 		},
 	];
 	return (
