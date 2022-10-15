@@ -1,8 +1,11 @@
 import express from "express";
 import TicketsCtrl from "./ctrl/tickets.controller.js";
-//del import ReviewsCtrl from "./ctrl/reviews.controller.js";
+import UserCtrl from "./ctrl/users.controller.js";
 
 const router = express.Router();
+
+//sign up
+router.route("/sign_up").post(UserCtrl.apiPostCreateAccount);
 
 //simple way : router.route("/").get((req, res) => res.send("hello world"));
 //restaurants.controller

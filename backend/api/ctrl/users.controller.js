@@ -1,81 +1,78 @@
-import ReviewsDAO from "../../dao/reviewsDAO.js";
+import UsersDAO from "../../dao/usersDAO.js";
 
-export default class ReviewsController {
-  static async apiPostReview(req, res, next) {
+export default class UsersContoller {
+  static async apiPostCreateAccount(req, res, next) {
     try {
-      if (req.body.restaurant_id == null) {
-        throw new Error("restaurant_id is null");
+      // console.log("request is " + req); //log
+      if (req.body.user_name == null) {
+        throw new Error("sign_up error: user_name is null");
       }
-      if (req.body.text == null) {
-        throw new Error("text is null");
+      if (req.body.password == null) {
+        throw new Error("sign_up error: password is null");
       }
-      if (req.body.name == null) {
-        throw new Error("name is null");
-      }
-      if (req.body.user_id == null) {
-        throw new Error("user_id is null");
-      }
-
-      const restaurantId = req.body.restaurant_id;
-      const review = req.body.text;
       const userInfo = {
-        name: req.body.name,
-        _id: req.body.user_id,
+        userId: req.body.user_name,
+        password: req.body.password,
       };
 
-      const date = new Date();
+      console.log(
+        "log: " +
+          "userInfo: " +
+          "userInfo.userId: " +
+          userInfo.userId +
+          "userInfo.password: " +
+          userInfo.password
+      ); //log
 
-      const ReviewResponse = await ReviewsDAO.addReview(
-        restaurantId,
-        userInfo,
-        review,
-        date
-      );
+      // //UsersResponse
+      const usersResponse = await UsersDAO.addUser(userInfo);
+      // console.log(usersResponse);
+      // res.json({ status: "success", user_id: usersResponse });
       res.json({ status: "success" });
     } catch (e) {
       res.status(500).json({ error: e.message });
     }
   }
 
-  static async apiUpdateReview(req, res, next) {
-    try {
-      const reviewId = req.body.review_id;
-      const text = req.body.text;
-      const date = new Date();
+  // static async apiUpdateReview(req, res, next) {
+  //   try {
+  //     const reviewId = req.body.review_id;
+  //     const text = req.body.text;
+  //     const date = new Date();
 
-      const reviewResponse = await ReviewsDAO.updateReview(
-        reviewId,
-        req.body.user_id,
-        text,
-        date
-      );
+  //     const reviewResponse = await UsersDAO.updateReview(
+  //       reviewId,
+  //       req.body.user_id,
+  //       text,
+  //       date
+  //     );
 
-      var { error } = reviewResponse;
-      if (error) {
-        res.status(400).json({ error });
-      }
+  //     var { error } = reviewResponse;
+  //     if (error) {
+  //       res.status(400).json({ error });
+  //     }
 
-      if (reviewResponse.modifiedCount === 0) {
-        throw new Error(
-          "unable to update review - user may not be original poster"
-        );
-      }
+  //     if (reviewResponse.modifiedCount === 0) {
+  //       throw new Error(
+  //         "unable to update review - user may not be original poster"
+  //       );
+  //     }
 
-      res.json({ status: "success" });
-    } catch (e) {
-      res.status(500).json({ error: e.message });
-    }
-  }
+  //     res.json({ status: "success" });
+  //   } catch (e) {
+  //     res.status(500).json({ error: e.message });
+  //   }
+  // }
 
-  static async apiDeleteReview(req, res, next) {
-    try {
-      const reviewId = req.query.id;
-      const userId = req.body.user_id;
-      console.log(reviewId);
-      const reviewResponse = await ReviewsDAO.deleteReview(reviewId, userId);
-      res.json({ status: "success" });
-    } catch (e) {
-      res.status(500).json({ error: e.message });
-    }
-  }
+  //   static async apiDeleteReview(req, res, next) {
+  //     try {
+  //       const reviewId = req.query.id;
+  //       const userId = req.body.user_id;
+  //       console.log(reviewId);
+  //       const reviewResponse = await UsersDAO.deleteReview(reviewId, userId);
+  //       res.json({ status: "success" });
+  //     } catch (e) {
+  //       res.status(500).json({ error: e.message });
+  //     }
+  //   }
 }

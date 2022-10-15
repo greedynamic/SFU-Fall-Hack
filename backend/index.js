@@ -2,7 +2,7 @@ import app from "./server.js";
 import mongodb from "mongodb";
 import dotenv from "dotenv";
 import ticketsDAO from "./dao/ticketsDAO.js";
-// import usersDAO from "./dao/usersDAO.js";
+import usersDAO from "./dao/usersDAO.js";
 
 dotenv.config();
 const MongoClient = mongodb.MongoClient;
@@ -20,7 +20,7 @@ MongoClient.connect(process.env.RESTREVIEWS_DB_URL, {
   })
   .then(async (client) => {
     await ticketsDAO.injectDB(client);
-    // await usersDAO.injectDB(client);
+    await usersDAO.injectDB(client);
     app.listen(port, () => {
       console.log(`listening on port ${port}`);
     });
