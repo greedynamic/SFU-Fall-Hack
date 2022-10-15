@@ -1,6 +1,14 @@
+const styles = {
+  eventCard: {
+    width: "45rem",
+    margin: "auto",
+    marginTop: "2em",
+    display: "block"
+  }
+};
 const EventCard = ({ title, location, time, cost, userID }) => {
   return (
-    <div className="card w-50">
+    <div className="card" style={styles.eventCard}>
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <hr></hr>
@@ -14,6 +22,7 @@ const EventCard = ({ title, location, time, cost, userID }) => {
         </a>
         {userID == 11 && (
           <button
+            style={{ marginLeft: "1em" }}
             onClick={() => {
               console.log("clicked");
             }}
