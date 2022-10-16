@@ -29,6 +29,7 @@ function Home() {
               time={event.date}
               cost={event.cost}
               userID={event.user_id}
+              contact={event.contact}
             />
           );
         })}
