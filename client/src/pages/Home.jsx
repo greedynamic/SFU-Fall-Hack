@@ -7,10 +7,6 @@ const Home = ()=>{
 	const userId = useContext(Context);
 	const [eventsData, setEventsData] = useState();
 	useEffect(()=>{
-		console.log(userId);
-
-		console.log('GETTING EVENTS');
-
 		axios.get('http://localhost:5001/api/v1/tickets').then((response)=>{
 			const data = response.data.tickets;
 			setEventsData(data);
