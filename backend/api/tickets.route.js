@@ -12,8 +12,8 @@ router.route("/sign_up").post(UserCtrl.apiPostCreateAccount);
 router.route("/").get(TicketsCtrl.apiGetBasicInfoOfTickets);
 router.route("/").post(TicketsCtrl.apiPostTickets);
 
-//log in
-router.route("/log_in").get(UserCtrl.apiGetUserLogIn);
+// //log in
+// router.route("/log_in").get(UserCtrl.apiGetUserLogIn);
 
 //del
 // //reviews.controller
