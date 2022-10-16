@@ -19,15 +19,16 @@ export default class TicketsDAO {
     // console.log(tickets); //logging
   }
 
-  static async addTicket(ticket, userId) {
+  static async addTicket(ticket, user) {
     try {
       const ticketDoc = {
         name: ticket._name,
         cost: ticket.cost,
         date: ticket.date,
         location: ticket.location,
-        user_id: userId,
+        user_id: user._id,
         ticket_id: ticket._id,
+        cotact: user.contact,
       };
 
       return await tickets.insertOne(ticketDoc); //db command
@@ -76,20 +77,6 @@ export default class TicketsDAO {
         `Unable to convert cursor to array or problem counting documents, ${e}`
       );
       return { ticketsList: [], totalNumTickets: 0 };
-    }
-  }
-
-  static async deleteTicket(ticketId, userId) {
-    try {
-      const deleteResponse = await tickets.deleteOne({
-        _id: ObjectId(ticketId),
-        user_id: userId,
-      });
-
-      return deleteResponse;
-    } catch (e) {
-      console.error(`Unable to delete ticket: ${e}`);
-      return { error: e };
     }
   }
   // static async getRestaurantByID(id) {

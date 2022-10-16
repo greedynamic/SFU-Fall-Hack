@@ -53,6 +53,9 @@ export default class TicketsController {
       if (req.body.user_id == null) {
         throw new Error("user_id is null");
       }
+      if (req.body.contact == null) {
+        throw new Error("contact is null");
+      }
 
       const ticketInfo = {
         _name: req.body.name, // _name is name of ticket
@@ -61,22 +64,13 @@ export default class TicketsController {
         date: req.body.date,
         location: req.body.location,
       };
-      const userId = req.body.user_id;
+      const userInfo = {
+        _id: req.body.user_id,
+        contact: req.body.contact,
+      };
 
-      const TicketsResponse = await TicketsDAO.addTicket(ticketInfo, userId);
+      const TicketsResponse = await TicketsDAO.addTicket(ticketInfo, userInfo);
 
-      res.json({ status: "success" });
-    } catch (e) {
-      res.status(500).json({ error: e.message });
-    }
-  }
-
-  static async apiDeleteTicket(req, res, next) {
-    try {
-      const ticketId = req.query.id;
-      const userId = req.body.user_id;
-      console.log(ticketId);
-      const TicketResponse = await TicketsDAO.deleteTicket(ticketId, userId);
       res.json({ status: "success" });
     } catch (e) {
       res.status(500).json({ error: e.message });
