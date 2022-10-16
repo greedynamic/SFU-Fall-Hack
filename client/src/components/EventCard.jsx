@@ -1,3 +1,5 @@
+import { Context } from "../context/GlobalContext";
+import { useState, useContext } from "react";
 const styles = {
   eventCard: {
     width: "45rem",
@@ -6,7 +8,9 @@ const styles = {
     display: "block"
   }
 };
+
 const EventCard = ({ title, location, time, cost, userID }) => {
+  const globalUserID = useContext(Context);
   return (
     <div className="card" style={styles.eventCard}>
       <div className="card-body">
@@ -20,7 +24,7 @@ const EventCard = ({ title, location, time, cost, userID }) => {
         <a href="#" className="btn btn-primary">
           Go somewhere
         </a>
-        {userID == 11 && (
+        {userID == globalUserID && (
           <button
             style={{ marginLeft: "1em" }}
             onClick={() => {

@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
@@ -12,9 +13,25 @@ const EventForm = ()=>{
 	const [dateTime, setDateTime] = React.useState('');
 	const [cost, setCost] = React.useState('');
 	const userId = useContext(Context);
+	
 	useEffect(()=>{
 		console.log(userId);
 	}, []);
+
+	const sendEventData=()=>{
+		console.log('SENDING USERDATA');
+		const eventData = {
+			name: ticket,
+			location: location,
+			date: dateTime,
+			cost: cost,
+			user_id: userId
+		};
+		axios.post('http://localhost:5001/api/v1/tickets/', eventData).then((response)=>{
+			console.log(response);
+		});
+	}
+
 	return (
 		<div style={{margin:"2rem",}}>
 			<Form style={{
@@ -79,7 +96,7 @@ const EventForm = ()=>{
 				<Button
 					variant='primary'
 					onClick={()=>{
-						console.log(ticket);
+						sendEventData();
 					}}>
 					Submit
 				</Button>

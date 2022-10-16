@@ -22,7 +22,7 @@ const Login = ()=>{
 			password: password,
 		};
 
-		axios.post('http://localhost:5000/api/v1/tickets/sign_up', userData).then((response)=>{
+		axios.post('http://localhost:5001/api/v1/tickets/sign_up', userData).then((response)=>{
 			console.log(response);
 		});
 	};

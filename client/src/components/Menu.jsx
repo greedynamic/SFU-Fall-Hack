@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 import {Link} from 'react-router-dom';
+import logo from '../assets/burner.png'
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -12,7 +13,7 @@ const Menu = ()=>{
 			<Navbar bg='dark' variant='dark'>
 				<Container>
 					<Navbar.Brand as={Link} to='/'>
-						<img alt='' src='' width='30' height='30' className='d-inline-block align-top' /> Last Menute Tickets
+						<img alt='burner' src={logo} width='30' height='30' className='d-inline-block align-top' /> Last Menute Tickets
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
