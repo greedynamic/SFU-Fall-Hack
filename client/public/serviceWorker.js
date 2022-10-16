@@ -36,3 +36,4 @@ self.addEventListener('install', function (event) {
     );
     self.skipWaiting();
 });
+Notification.requestPermission().then(function (permission) { console.log('permiss', permission) });
