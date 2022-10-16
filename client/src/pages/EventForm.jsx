@@ -102,7 +102,7 @@ const EventForm = ()=>{
 						placeholder='ex. instagram: @instaid'
 						value={contact}
 						onChange={({target})=>{
-							setCost(target.value);
+							setContact(target.value);
 						}}
 					/>
 				</Form.Group>
