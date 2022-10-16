@@ -9,7 +9,7 @@ const styles = {
   }
 };
 
-const EventCard = ({ title, location, time, cost, userID }) => {
+const EventCard = ({ title, location, time, cost, userID, contact }) => {
   const globalUserID = useContext(Context);
   return (
     <div className="card" style={styles.eventCard}>
@@ -19,11 +19,10 @@ const EventCard = ({ title, location, time, cost, userID }) => {
         <p className="card-text">
           Venue Location: {location} <br />
           Date and Time: {time} <br />
-          Original Cost: {cost}
+          Original Cost: {cost} <br />
+          Seller Contact: {contact} <br />
         </p>
-        <a href="#" className="btn btn-primary">
-          Go somewhere
-        </a>
+
         {userID == globalUserID && (
           <button
             style={{ marginLeft: "1em" }}
