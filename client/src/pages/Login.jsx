@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import {useState, useContext} from 'react';
+import {useContext} from 'react';
 import {Context} from '../context/GlobalContext';
 import axios from 'axios';
 
@@ -11,9 +11,6 @@ const Login = ()=>{
 	const [email, setEmail] = React.useState('');
 	const [password, setPassword] = React.useState('');
 	const userId = useContext(Context);
-	useEffect(()=>{
-		console.log(userId);
-	}, []);
 
 	const sendUserData = ()=>{
 		console.log('SENDING USERDATA');

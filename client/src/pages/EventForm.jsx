@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
-import {useState, useContext, useEffect} from 'react';
+import {useContext} from 'react';
 import {Context} from '../context/GlobalContext';
 
 const EventForm = ()=>{
@@ -14,12 +14,8 @@ const EventForm = ()=>{
 	const [cost, setCost] = React.useState('');
 	const [contact, setContact] = React.useState('');
 	const userId = useContext(Context);
-	
-	useEffect(()=>{
-		console.log(userId);
-	}, []);
 
-	const sendEventData=()=>{
+	const sendEventData = ()=>{
 		console.log('SENDING USERDATA');
 		const eventData = {
 			name: ticket,
@@ -27,26 +23,26 @@ const EventForm = ()=>{
 			date: dateTime,
 			cost: cost,
 			contact: contact,
-			user_id: userId
+			user_id: userId,
 		};
 		axios.post('http://localhost:5001/api/v1/tickets/', eventData).then((response)=>{
 			console.log(response);
 		});
-	}
+	};
 
 	return (
-		<div style={{margin:"2rem",}}>
-			<Form style={{
-				padding:"1rem",
-				maxWidth:"45rem",
-				margin:"auto",
-				display:"block",
-				borderStyle:"solid",
-				borderColor:"#C8C9CA",
-				borderRadius:"5px",
-				borderWidth:"1px"
-
-			}}>
+		<div style={{margin: '2rem'}}>
+			<Form
+				style={{
+					padding: '1rem',
+					maxWidth: '45rem',
+					margin: 'auto',
+					display: 'block',
+					borderStyle: 'solid',
+					borderColor: '#C8C9CA',
+					borderRadius: '5px',
+					borderWidth: '1px',
+				}}>
 				<Form.Group className='mb-3' controlId='formTicketName'>
 					<Form.Label>Ticket Name</Form.Label>
 					<Form.Control
@@ -106,7 +102,6 @@ const EventForm = ()=>{
 						}}
 					/>
 				</Form.Group>
-
 
 				<Button
 					variant='primary'

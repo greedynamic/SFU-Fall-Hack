@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 import {Link} from 'react-router-dom';
-import logo from '../assets/burner.png'
+import logo from '../assets/burner.png';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
