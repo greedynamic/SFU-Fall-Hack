@@ -10,6 +10,8 @@ router.route("/sign_up").post(UserCtrl.apiPostCreateAccount);
 //simple way : router.route("/").get((req, res) => res.send("hello world"));
 //restaurants.controller
 router.route("/").get(TicketsCtrl.apiGetBasicInfoOfTickets);
+router.route("/").post(TicketsCtrl.apiPostTickets);
+
 // router.route("/id/:id").get(RestaurantsCtrl.apiGetRestaurantById);
 // router.route("/cusines").get(RestaurantsCtrl.apiGetRestaurantCuisines);
 

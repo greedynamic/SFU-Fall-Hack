@@ -32,6 +32,45 @@ export default class TicketsController {
     };
     res.json(response);
   }
+
+  static async apiPostTickets(req, res, next) {
+    try {
+      if (req.body.name == null) {
+        throw new Error("name is null");
+      }
+      if (req.body.tickets_id == null) {
+        throw new Error("tickets_id is null");
+      }
+      if (req.body.cost == null) {
+        throw new Error("cost is null");
+      }
+      if (req.body.date == null) {
+        throw new Error("date is null");
+      }
+      if (req.body.location == null) {
+        throw new Error("location is null");
+      }
+      if (req.body.user_id == null) {
+        throw new Error("user_id is null");
+      }
+
+      const ticketInfo = {
+        _name: req.body.name, // _name is name of ticket
+        _id: req.body.tickets_id,
+        cost: req.body.cost,
+        date: req.body.date,
+        location: req.body.location,
+      };
+      const userId = req.body.user_id;
+
+      const TicketsResponse = await TicketsDAO.addTicket(ticketInfo, userId);
+
+      res.json({ status: "success" });
+    } catch (e) {
+      res.status(500).json({ error: e.message });
+    }
+  }
+
   // static async apiGetRestaurantById(req, res, next) {
   //   try {
   //     let id = req.params.id || {};

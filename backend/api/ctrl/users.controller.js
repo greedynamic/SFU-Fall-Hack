@@ -10,18 +10,24 @@ export default class UsersContoller {
       if (req.body.password == null) {
         throw new Error("sign_up error: password is null");
       }
+      if (req.body.user_id == null) {
+        throw new Error("sign_up error: password is null");
+      }
       const userInfo = {
-        userId: req.body.user_name,
+        userName: req.body.user_name,
         password: req.body.password,
+        userId: req.body.user_id,
       };
 
       console.log(
         "log: " +
           "userInfo: " +
-          "userInfo.userId: " +
-          userInfo.userId +
+          "userInfo.userName: " +
+          userInfo.userName +
           "userInfo.password: " +
-          userInfo.password
+          userInfo.password +
+          "userInfo.userId: " +
+          userInfo.userId
       ); //log
 
       // //UsersResponse

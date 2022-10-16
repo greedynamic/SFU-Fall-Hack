@@ -20,8 +20,9 @@ export default class ReviewsDAO {
   static async addUser(user) {
     try {
       const userDoc = {
-        user_name: user.userId,
+        user_name: user.userName,
         password: user.password,
+        user_id: user.userId,
       };
 
       return await users.insertOne(userDoc); //db command
