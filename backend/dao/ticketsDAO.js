@@ -19,6 +19,31 @@ export default class TicketsDAO {
     // console.log(tickets); //logging
   }
 
+  static async addTicket(ticket, userId) {
+    try {
+      const ticketDoc = {
+        name: ticket._name,
+        cost: ticket.cost,
+        date: ticket.date,
+        location: ticket.location,
+        user_id: userId,
+        ticket_id: ticket._id
+      };
+
+      return await tickets.insertOne(ticketDoc); //db command
+
+      // let result;
+      // // console.log("log: " + tickets.find(ticketDoc.userId)._id);// log
+      // // result.ObjectId = tickets.find(ticketDoc.id)._id;
+      // result = await tickets.findOne(ticketDoc.name).exec();
+
+      // return result;
+    } catch (e) {
+      console.error(`Unable to post review: ${e}`);
+      return { error: e };
+    }
+  }
+
   static async getBasicInfoOfTickets({
     filters = null,
     page = 0,
