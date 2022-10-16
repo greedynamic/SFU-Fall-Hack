@@ -33,6 +33,7 @@ export default class TicketsController {
     res.json(response);
   }
 
+<<<<<<< Updated upstream
   static async apiPostTickets(req, res, next) {
     try {
       if (req.body.name == null) {
@@ -65,12 +66,23 @@ export default class TicketsController {
 
       const TicketsResponse = await TicketsDAO.addTicket(ticketInfo, userId);
 
+=======
+  static async apiDeleteTicket(req, res, next) {
+    try {
+      const ticketId = req.query.id;
+      const userId = req.body.user_id;
+      console.log(ticketId);
+      const reviewResponse = await TicketsDAO.deleteReview(ticketId, userId);
+>>>>>>> Stashed changes
       res.json({ status: "success" });
     } catch (e) {
       res.status(500).json({ error: e.message });
     }
   }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   // static async apiGetRestaurantById(req, res, next) {
   //   try {
   //     let id = req.params.id || {};
