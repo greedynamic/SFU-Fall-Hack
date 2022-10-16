@@ -12,6 +12,7 @@ const EventForm = ()=>{
 	const [location, setLocation] = React.useState('');
 	const [dateTime, setDateTime] = React.useState('');
 	const [cost, setCost] = React.useState('');
+	const [contact, setContact] = React.useState('');
 	const userId = useContext(Context);
 	
 	useEffect(()=>{
@@ -25,6 +26,7 @@ const EventForm = ()=>{
 			location: location,
 			date: dateTime,
 			cost: cost,
+			contact: contact,
 			user_id: userId
 		};
 		axios.post('http://localhost:5001/api/v1/tickets/', eventData).then((response)=>{
@@ -92,6 +94,19 @@ const EventForm = ()=>{
 						}}
 					/>
 				</Form.Group>
+
+				<Form.Group className='mb-3' controlId='formCost'>
+					<Form.Label>How to contact you</Form.Label>
+					<Form.Control
+						type='contact'
+						placeholder='ex. instagram: @instaid'
+						value={contact}
+						onChange={({target})=>{
+							setCost(target.value);
+						}}
+					/>
+				</Form.Group>
+
 
 				<Button
 					variant='primary'
