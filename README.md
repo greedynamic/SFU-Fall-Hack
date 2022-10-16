@@ -26,8 +26,13 @@ nodemon server                              //run on localhost port:5001
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. (running npm start should automatically open up the tab)
 
 All Members:
+
 Chirs
+
 Fillop
+
 Natasha
+
 Tommy
+
 Yuchun
