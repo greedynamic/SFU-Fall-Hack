@@ -11,6 +11,7 @@ router.route("/sign_up").post(UserCtrl.apiPostCreateAccount);
 //restaurants.controller
 router.route("/").get(TicketsCtrl.apiGetBasicInfoOfTickets);
 router.route("/").post(TicketsCtrl.apiPostTickets);
+router.route("/").delete(TicketsCtrl.apiDeleteTicket);
 
 // router.route("/id/:id").get(RestaurantsCtrl.apiGetRestaurantById);
 // router.route("/cusines").get(RestaurantsCtrl.apiGetRestaurantCuisines);

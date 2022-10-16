@@ -78,6 +78,20 @@ export default class TicketsDAO {
       return { ticketsList: [], totalNumTickets: 0 };
     }
   }
+
+  static async deleteTicket(ticketId, userId) {
+    try {
+      const deleteResponse = await tickets.deleteOne({
+        _id: ObjectId(ticketId),
+        user_id: userId,
+      });
+
+      return deleteResponse;
+    } catch (e) {
+      console.error(`Unable to delete ticket: ${e}`);
+      return { error: e };
+    }
+  }
   // static async getRestaurantByID(id) {
   //   try {
   //     const pipeline = [
